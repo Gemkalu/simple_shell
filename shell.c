@@ -31,7 +31,7 @@ void _EOF(int len, char *buff)
 	}
 }
 /**
-  * _isatty - verif if terminal
+  * _isatty - This is verif if terminal
   */
 
 void _isatty(void)
