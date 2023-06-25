@@ -24,7 +24,7 @@ void _EOF(int len, char *buff)
 	{
 		if (isatty(STDIN_FILENO))
 		{
-			_puts("\n");
+			g_puts("\n");
 			free(buff);
 		}
 		exit(0);
@@ -37,7 +37,7 @@ void _EOF(int len, char *buff)
 void _isatty(void)
 {
 	if (isatty(STDIN_FILENO))
-		_puts("#cisfun$ ");
+		g_puts("#cisfun$ ");
 }
 /**
  * main -This is a Shell
@@ -58,32 +58,32 @@ int main(void)
 		_isatty();
 		len = getline(&buff, &size, stdin);
 		_EOF(len, buff);
-		arv = splitstring(buff, " \n");
+		arv = gsplitstring(buff, " \n");
 		if (!arv || !arv[0])
-			execute(arv);
+			gexecute(arv);
 		else
 		{
 			value = _getenv("PATH");
 			head = linkpath(value);
 			pathname = _which(arv[0], head);
-			f = checkbuild(arv);
+			f = gcheckbuild(arv);
 			if (f)
 			{
 				free(buff);
 				f(arv);
 			}
 			else if (!pathname)
-				execute(arv);
+				gexecute(arv);
 			else if (pathname)
 			{
 				free(arv[0]);
 				arv[0] = pathname;
-				execute(arv);
+				gexecute(arv);
 			}
 		}
 	}
-	free_list(head);
-	freearv(arv);
+	gfree_list(head);
+	gfreearv(arv);
 	free(buff);
 	return (0);
 }
