@@ -2,7 +2,7 @@
 
 
 /**
- * g_getenv - This gets the value of the global variable
+ * _getenv - This gets the value of the global variable
  * @name: This is the name of the global variable
  * Return:This is the string of value
  */
