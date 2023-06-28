@@ -2,7 +2,7 @@
 
 /**
  * get_environ - This functions  returns the string array copy of our environ
- * @info: This is a a structure containing potential arguments. Used to maintain
+ * @info: This is a structure containing potential arguments. Used to maintain
  *        constant function prototype.
  * Return: Always 0
  */
@@ -50,7 +50,7 @@ int g_unsetenv(info_t *info, char *var)
 }
 
 /**
- * _setenv - Initialize a new environment variable,
+ * g_setenv - Initialize a new environment variable,
  *             or modify an existing one
  * @info: Structure containing potential arguments. Used to maintain
  *        constant function prototype.

@@ -8,7 +8,7 @@
  */
 int _interactive(info_t *info)
 {
-        return (isatty(STDIN_FILENO) && info->readfd <= 2);
+	return (isatty(STDIN_FILENO) && info->readfd <= 2);
 }
 
 /**
@@ -20,13 +20,13 @@ int _interactive(info_t *info)
  */
 int _is_delim(char c, char *delim)
 {
-        while (*delim)
-        {
-                if (*delim == c)
-                        return (1);
-                delim++;
-        }
-        return (0);
+	while (*delim)
+	{
+		if (*delim == c)
+			return (1);
+		delim++;
+	}
+	return (0);
 }
 
 /**
@@ -37,8 +37,8 @@ int _is_delim(char c, char *delim)
  */
 int g_isalpha(int c)
 {
-        return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
-  }
+	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
+}
 
 /**
  * g_atoi - This converts a string to an integer
@@ -48,28 +48,27 @@ int g_isalpha(int c)
  */
 int g_atoi(char *s)
 {
-        int sign = 1;
-        unsigned int result = 0;
-        int i = 0;
+	int sign = 1;
+	unsigned int result = 0;
+	int i = 0;
 
-        while (s[i] != '\0')
-        {
-                if (s[i] == '-')
-                        sign *= -1;
-                else if (s[i] >= '0' && s[i] <= '9')
-                {
-                        result *= 1;
-                        result += (s[i] - '0');
-                }
-                else
-                {
-                        break;
-                }
-                i++;
-        }
-
-        if (sign == -1)
-                return (-result);
-        else
-                return (result);
+	while (s[i] != '\0')
+	{
+		if (s[i] == '-')
+			sign *= -1;
+		else if (s[i] >= '0' && s[i] <= '9')
+		{
+			result *= 1;
+			result += (s[i] - '0');
+		}
+		else
+		{
+			break;
+		}
+		i++;
+	}
+	if (sign == -1)
+		return (-result);
+	else
+		return (result);
 }
